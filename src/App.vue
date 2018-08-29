@@ -39,4 +39,9 @@ li {
 a {
   color: #42b983;
 }
+pre {
+  max-width: 500px;
+  margin: 50px auto;
+  text-align: initial;
+}
 </style>
