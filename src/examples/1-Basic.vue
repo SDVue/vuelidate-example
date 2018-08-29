@@ -1,11 +1,11 @@
 <template>
-	<div>
+	<form>
 		<label>Name:
 			<input v-model="input">
 		</label>
 
 		<pre>{{ $v }}</pre>
-	</div>
+	</form>
 </template>
 
 <script>
