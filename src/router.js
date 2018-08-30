@@ -28,6 +28,11 @@ const routes = [
     path: "/delayed",
     name: "Errors",
     component: () => import("@/examples/4-DelayedErrors")
+  },
+  {
+    path: "/prevent",
+    name: "Prevent",
+    component: () => import("@/examples/5-PreventInvalid")
   }
 ];
 

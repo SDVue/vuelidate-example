@@ -14,6 +14,9 @@
       <li>
         <router-link to="delayed">Delayed Errors</router-link>
       </li>
+      <li>
+        <router-link to="prevent">Prevent Invalid</router-link>
+      </li>
     </ul>
 
     <router-view></router-view>

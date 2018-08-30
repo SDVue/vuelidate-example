@@ -26,8 +26,7 @@ import { required, email } from "vuelidate/lib/validators";
 export default {
   data: () => ({
     name: "",
-    email: "",
-    errorLocation: "inline"
+    email: ""
   }),
 
   methods: {
