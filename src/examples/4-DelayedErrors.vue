@@ -2,7 +2,8 @@
 	<form @submit.prevent="onSubmit">
 
 		<label>Name (validate on blur):
-			<input v-model="name" @blur="$v.name.$touch()">
+			<input v-model.lazy="$v.name.$model">
+			<!-- <input v-model="name" @blur="$v.name.$touch()"> -->
 			<div v-if="$v.name.$error" class="validation-errors">
 				<small v-if="!$v.name.required">Field is required.</small>
 			</div>

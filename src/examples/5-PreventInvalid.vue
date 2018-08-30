@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="onSubmit">
+  <form @submit.prevent>
 
     <label>Name:
       <input v-model="name">
@@ -16,10 +16,14 @@
       </div>
     </label>
 
-    <button type="submit" :disabled="$v.$invalid">Submit</button>
+    <button @click="onSubmit" :disabled="$v.$invalid">Submit</button>
     <br> or
     <br>
-    <button type="submit" :style="{ opacity: $v.$invalid ? '0.3' : '' }">Submit</button>
+    <button v-if="$v.$invalid" @click="$v.$touch()" :style="{ opacity: $v.$invalid ? '0.3' : '' }">Submit (invalid)</button>
+    <button v-else @click="onSubmit">Submit (valid)</button>
+    <br> or
+    <br>
+    <button @click="onSubmit" :style="{ opacity: $v.$invalid ? '0.3' : '' }">Submit</button>
   </form>
 </template>
 
@@ -34,6 +38,8 @@ export default {
 
   methods: {
     onSubmit() {
+      this.$v.$reset();
+
       if (this.$v.$invalid) {
         this.$v.$touch();
         return;
