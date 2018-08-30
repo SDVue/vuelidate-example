@@ -1,28 +1,22 @@
 <template>
-	<form>
+	<form @submit.prevent="onSubmit">
 
-		<!-- <ul v-if="$v.$anyError" class="validation-errors">
-			<li v-if="!$v.name.required">Name is required.</li>
-			<li v-if="!$v.email.required">Email is required.</li>
-			<li v-if="!$v.email.email">Email must be a valid email.</li>
-		</ul> -->
-
-		<label>Name:
-			<input v-model="$v.name.$model">
+		<label>Name (validate on blur):
+			<input v-model="name" @blur="$v.name.$touch()">
 			<div v-if="$v.name.$error" class="validation-errors">
 				<small v-if="!$v.name.required">Field is required.</small>
 			</div>
 		</label>
 
-		<label>Email:
-			<input v-model="$v.email.$model">
+		<label>Email (validate on submit):
+			<input v-model="email">
 			<div v-if="$v.email.$error" class="validation-errors">
 				<small v-if="!$v.email.required">Field is required.</small>
-				<small v-if="!$v.email.email">Must be an email.</small>
+				<small v-if="!$v.email.email">Must be a valid email.</small>
 			</div>
 		</label>
 
-		<pre>{{ $v }}</pre>
+		<button type="submit">Submit</button>
 	</form>
 </template>
 
@@ -32,8 +26,15 @@ import { required, email } from "vuelidate/lib/validators";
 export default {
   data: () => ({
     name: "",
-    email: ""
+    email: "",
+    errorLocation: "inline"
   }),
+
+  methods: {
+    onSubmit() {
+      this.$v.$touch();
+    }
+  },
 
   validations: {
     name: { required },

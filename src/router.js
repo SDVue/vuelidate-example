@@ -23,6 +23,11 @@ const routes = [
     path: "/errors",
     name: "Errors",
     component: () => import("@/examples/3-DisplayErrors")
+  },
+  {
+    path: "/delayed",
+    name: "Errors",
+    component: () => import("@/examples/4-DelayedErrors")
   }
 ];
 
