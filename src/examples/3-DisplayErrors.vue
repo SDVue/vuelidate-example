@@ -11,6 +11,7 @@
 			<input v-model="$v.name.$model">
 			<div v-if="$v.name.$error" class="validation-errors">
 				<small v-if="!$v.name.required">Field is required.</small>
+				<small v-if="!$v.name.min">Too short.</small>
 			</div>
 		</label>
 
@@ -27,7 +28,7 @@
 </template>
 
 <script>
-import { required, email } from "vuelidate/lib/validators";
+import { required, minLength, email } from "vuelidate/lib/validators";
 
 export default {
   data: () => ({
@@ -36,7 +37,7 @@ export default {
   }),
 
   validations: {
-    name: { required },
+    name: { required, min: minLength(3) },
     email: { required, email }
   }
 };
