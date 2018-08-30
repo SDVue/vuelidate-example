@@ -4,25 +4,25 @@
 
     <div>
       <label>Name:
-        <input v-model="name">
+        <input v-model="$v.name.$model">
       </label>
     </div>
 
     <div>
       <label>Email:
-        <input v-model="email">
+        <input v-model="$v.email.$model">
       </label>
     </div>
 
     <div>
       <label>Password:
-        <input v-model="password">
+        <input v-model="$v.password.$model">
       </label>
     </div>
 
     <div>
       <label>Repeat Password:
-        <input v-model="repeat">
+        <input v-model="$v.repeat.$model">
       </label>
     </div>
 
@@ -30,25 +30,25 @@
       <legend>Address:</legend>
       <div>
         <label>Street:
-          <input v-model="address.street">
+          <input v-model="$v.address.street.$model">
         </label>
       </div>
 
       <div>
         <label>State:
-          <input v-model="address.state">
+          <input v-model="$v.address.state.$model">
         </label>
       </div>
 
       <div>
         <label>ZIP:
-          <input v-model="address.zip">
+          <input v-model="$v.address.zip.$model">
         </label>
       </div>
     </fieldset>
 
     <label>Favorite Food (no hotdogs!):
-      <input v-model="food">
+      <input v-model="$v.food.$model">
     </label>
   </form>
 </template>
@@ -91,6 +91,7 @@ export default {
     },
     repeat: { matches: sameAs("password") },
     address: {
+      // Nested validators
       street: { required },
       state: { required },
       zip: {

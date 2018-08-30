@@ -18,6 +18,11 @@ const routes = [
     path: "/extended",
     name: "Extended",
     component: () => import("@/examples/2-Extended")
+  },
+  {
+    path: "/errors",
+    name: "Errors",
+    component: () => import("@/examples/3-DisplayErrors")
   }
 ];
 

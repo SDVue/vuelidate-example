@@ -8,6 +8,9 @@
       <li>
         <router-link to="extended">Extended</router-link>
       </li>
+      <li>
+        <router-link to="errors">Display Errors</router-link>
+      </li>
     </ul>
 
     <router-view></router-view>
@@ -56,12 +59,26 @@ ul {
 a {
   color: #42b983;
 }
+fieldset,
+label > :last-child {
+  margin: 0 0 20px;
+}
 input,
 fieldset {
   width: 100%;
-  margin: 0 0 20px;
+}
+input[type="radio"] {
+  width: auto;
 }
 pre {
   text-align: initial;
+}
+.router-link-exact-active {
+  color: inherit;
+}
+.validation-errors {
+  border: 1px solid;
+  color: #b00000;
+  background: #f8cccc;
 }
 </style>

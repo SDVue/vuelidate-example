@@ -1,11 +1,11 @@
 <template>
-	<form>
-		<label>Name:
-			<input v-model="input">
-		</label>
+  <form>
+    <label>Name:
+      <input v-model="$v.name.$model">
+    </label>
 
-		<pre>{{ $v }}</pre>
-	</form>
+    <pre>{{ $v }}</pre>
+  </form>
 </template>
 
 <script>
@@ -16,11 +16,11 @@ export default {
   // mixins: [validationMixin], // NOTE: if you don't import the library globally, you must import locally.
 
   data: () => ({
-    input: ""
+    name: ""
   }),
 
   validations: {
-    input: { required }
+    name: { required }
   }
 };
 </script>
