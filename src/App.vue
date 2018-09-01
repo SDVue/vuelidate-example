@@ -2,20 +2,8 @@
   <div id="app">
     <h1>Vuelidate Examples:</h1>
     <ul class="nav">
-      <li>
-        <router-link to="basic">Basic</router-link>
-      </li>
-      <li>
-        <router-link to="extended">Extended</router-link>
-      </li>
-      <li>
-        <router-link to="errors">Display Errors</router-link>
-      </li>
-      <li>
-        <router-link to="delayed">Delayed Errors</router-link>
-      </li>
-      <li>
-        <router-link to="prevent">Prevent Invalid</router-link>
+      <li v-for="route in routes" :key="route.path">
+        <router-link :to="route">{{ route.name }}</router-link>
       </li>
     </ul>
 
@@ -24,8 +12,12 @@
 </template>
 
 <script>
+import { routes } from "@/router";
+
 export default {
-  name: "app"
+  data: () => ({
+    routes
+  })
 };
 </script>
 

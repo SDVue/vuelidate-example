@@ -5,10 +5,12 @@
 			<input v-model.lazy="$v.name.$model">
 			<div v-if="$v.name.$error" class="validation-errors">
 				<small v-if="!$v.name.required">Field is required.</small>
+				<small v-if="!$v.name.min">Must be at least {{ $v.name.$params.min.min }} characters.</small>
 			</div>
 		</label>
 
 		<label>Email (validate on blur):
+			<!-- NOTE: Uses normal vue data, not $v.[key].$model -->
 			<input v-model="email" @blur="$v.email.$touch()">
 			<div v-if="$v.email.$error" class="validation-errors">
 				<small v-if="!$v.email.required">Field is required.</small>
@@ -21,7 +23,7 @@
 			<!-- Can also add attributes - :min="$v.age.$params.between.min" :max="$v.age.$params.between.max" -->
 			<div v-if="$v.age.$error" class="validation-errors">
 				<small v-if="!$v.age.required">Field is required.</small>
-				<small v-if="!$v.age.between">Must be between {{$v.age.$params.between.min}} and {{$v.age.$params.between.max}}.</small>
+				<small v-if="!$v.age.between">Must be between {{ $v.age.$params.between.min }} and {{ $v.age.$params.between.max }}.</small>
 			</div>
 		</label>
 

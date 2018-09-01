@@ -3,7 +3,7 @@ import Router from "vue-router";
 
 Vue.use(Router);
 
-const routes = [
+export const routes = [
   {
     path: "/",
     name: "Home",
@@ -21,18 +21,23 @@ const routes = [
   },
   {
     path: "/errors",
-    name: "Errors",
+    name: "Display Errors",
     component: () => import("@/examples/3-DisplayErrors")
   },
   {
     path: "/delayed",
-    name: "Errors",
+    name: "Delayed Errors",
     component: () => import("@/examples/4-DelayedErrors")
   },
   {
     path: "/prevent",
-    name: "Prevent",
+    name: "Prevent Invalid",
     component: () => import("@/examples/5-PreventInvalid")
+  },
+  {
+    path: "/loops",
+    name: "Loops",
+    component: () => import("@/examples/6-Loops")
   }
 ];
 

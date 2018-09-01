@@ -17,12 +17,14 @@
     </label>
 
     <button @click="onSubmit" :disabled="$v.$invalid">Submit</button>
-    <br> or
-    <br>
-    <button v-if="$v.$invalid" @click="$v.$touch()" :style="{ opacity: $v.$invalid ? '0.3' : '' }">Submit (invalid)</button>
-    <button v-else @click="onSubmit">Submit (valid)</button>
-    <br> or
-    <br>
+
+    <p>or</p>
+
+    <button v-if="$v.$invalid" @click="$v.$touch()" :style="{ opacity: $v.$invalid ? '0.3' : '' }">Submit (form is invalid)</button>
+    <button v-else @click="onSubmit">Submit (form is valid)</button>
+
+    <p>or</p>
+
     <button @click="onSubmit" :style="{ opacity: $v.$invalid ? '0.3' : '' }">Submit</button>
   </form>
 </template>
